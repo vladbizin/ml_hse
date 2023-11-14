@@ -4,9 +4,9 @@ Here are some interesting problems given as course home assignments. Some of the
 ### Interesting Linear Regression Problem
 #### Setting
 Consider two sets of points $A$ and $B$ in $\mathbb{R}^2$ space. Linear Regression fit on $A$  is $y = k_1x + y_1$, $k_1 > 0$; and Linear Regression fit on $B$ is $y = k_2x + y_2$, $k_2 > 0$.
-#### Quesion
+#### Question
 Is it true that Linear Regression fit on $A \cup B$ is $y = k_3x + y_3$ with $k_3 > 0$. If yes, then prove it. Provide examples otherwise.<br>
-You can look through reg_problem.ipynb file to see some interesting cases and solutions to this problem.<br>
+You can look through reg_problem.ipynb file to see some interesting cases and solutions to this problem. <br>
 
 ### K Nearest Neighbours Implementation
 Here you can find my implementation of KNN classifier with Euclidian metric (the code may be generalized to any other). Implementation is pretty much straightforward and uses brute force.<br>
@@ -20,7 +20,7 @@ Some crucial classification metrics are implemented as well. These include:
 <li> F1 score </li>
 </ul>
 
-See the implementation in KNN.py file
+See the implementation in KNN.py file <br>
 
 ### Mutual Information and Differential Mutual Information Score Implementation
 #### Mutual Information Score
@@ -60,4 +60,61 @@ N.B.1 As of 10.19.2023 only proposed by dunn verison of inter- and intracluster 
 N.B.2 I used [sklearn open source code](https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/metrics/cluster/_unsupervised.py#L195) as reference to write my own.<br>
 
 See the implementation in dunn_index.py file. See also extra_dunn.ipynb file for use example.<br>
-If you spot ant mistake, let me know ;)
+If you spot ant mistake, let me know ;)</br>
+
+### Independency of Random Variables
+#### Setting
+Given the following probabilites $p(a,b,c)$
+
+| a | b | c | $p(a,b,c)$ |
+| --- | --- | --- | --- |
+| 0 | 0 | 0 | 0.192 |
+| 0 | 0 | 1 | 0.144 |
+| 0 | 1 | 0 | 0.048 |
+| 0 | 1 | 1 | 0.216 |
+| 1 | 0 | 0 | 0.192 |
+| 1 | 0 | 1 | 0.064 |
+| 1 | 1 | 0 | 0.048 |
+| 1 | 1 | 1 | 0.096 |
+
+#### Question
+tell:
+1. if $a$ and $b$ are independent random variables
+1. if $a|c$ and $b|c$ are independent random varables
+
+Solution can be found in independance.ipynb file. <br>
+### Bayesian Inference for Alarm
+#### Setting
+Consider an the following Bayesian network: <br>
+$r$ -> $\alpha$ <br>
+$e$ -> $\alpha$ <br>
+$e$ -> $a$ <br>
+where $r$ is a robbery , $e$ is an earthquake, $a$ is radion eqrthquake alert and $\alpha$ is an alarm $r, e, a, \alpha \in \{0, 1\}$ <br>
+This Bayesian network is defined by the following probabilities:
+* $p(\alpha = 0 | r=0, e=0) = 0$
+* $p(\alpha = 0 | r=0, e=0) = 0$
+* $p(\alpha = 0 | r = 1) = 1$
+* $p(\alpha = 0 | e = 1) = 0.1$
+* $p(r = 1) = 10^{-4}$
+* $p(e = 1) = 10^{-2}$
+* $p(a = 0 | e = 1) = 1/2$
+* $p(a = 0 | e = 0) = 0$
+
+#### Question
+With these probabilities calculate the following:
+1. $p(r = 1 | \alpha = 1)$ </li>
+2. $p(r = 0 | \alpha = 1, a = 1)$ </li>
+
+Solution can be found in Bayesian_Inference_Alarm.ipynb file. <br>
+
+### Parametet Estimation
+#### Setting
+Consider $n$ independant uniform random variables $X_1, \dots, X_n \sim U[0, \theta]$.
+
+#### Question
+Find
+1. Maximum Likelihood Estimation $\theta_{ML}$ and Moment Method Estimation of $\theta_{MM}$ </li>
+2. Maximum Aposterior Estimation $\theta_{MAP}$ if $p(\theta) \sim \textit{N}(0, 1)$ 
+3. Calculate Biases $\mathbb{E}[\theta - \theta_{ML}]$, $\mathbb{E}[\theta - \theta_{MM}]$ and $\mathbb{E}[(\theta - \theta_{ML})^2]$, $\mathbb{E}[(\theta - \theta_{MM})^2]$
+
+Solution can be found in Parameter_Estimation.ipynb file. <br>
